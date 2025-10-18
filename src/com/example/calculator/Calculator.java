@@ -15,10 +15,10 @@ public class Calculator {
 
     // [2] 사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현
     // 생성자
-    public int Calculate(int num1, int num2, char symbol) {
+    public int Calculate(int num1, int num2, char operator) {
         int result = 0;
 
-        switch (symbol) {
+        switch (operator) {
             case '+':
                 result = num1 + num2;
                 break;
