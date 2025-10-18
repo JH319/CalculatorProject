@@ -1,4 +1,5 @@
 package com.example.calculator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -32,15 +33,38 @@ public class App {
                 System.out.println("결과: " + result);
             }
 
+            // 게터 활용
+            ArrayList<Integer> arrResults = cal.getResults();
+            System.out.println("결과 리스트 = " + arrResults);
+
 
             // [6] 계산 후, 종료 여부 묻기
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            System.out.println("더 계산하시겠습니까? (exit : 입력 시 종료 / modify : 입력 시 수정)");
             String answer = sc.next();
 
             if ("exit".equals(answer)) {
                 System.out.println("계산을 종료합니다.");
                 break;
+            } else if ("modify".equals(answer)) {
+                // 세터 활용
+                System.out.print("::: 수정할 인덱스를 입력하세요 : ");
+                int index = sc.nextInt();
+                System.out.print("::: 수정할 값을 입력하세요 : ");
+                int newValue = sc.nextInt();
+                cal.setResults(index, newValue);
+                ArrayList modifyResult = cal.getResults();
+                System.out.println("::: 수정 된 결과 리스트 = " + modifyResult);
+
+                // 수정 후 사용자에게 다음 행동을 다시 묻기
+                System.out.println("더 계산하시겠습니까? (exit : 입력 시 종료)");
+                String afterModify = sc.next();
+                if ("exit".equals(afterModify)) {
+                    break;
+                }
             }
+
+
+
         }
     }
 }
