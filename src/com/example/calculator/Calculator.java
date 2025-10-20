@@ -28,7 +28,7 @@ public class Calculator {
                 }
                 break;
             default:
-                System.out.println("오류 : 유효하지 않은 연산 기호입니다.");
+                throw new IllegalArgumentException("유효하지 않은 연산 기호입니다.");
         }
 
 
