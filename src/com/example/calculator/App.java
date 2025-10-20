@@ -18,10 +18,20 @@ public class App {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 int num1 = sc.nextInt();
 
+                // num1 유효성 검사
+                if (num1 < 0) {
+                    System.out.println("양수(0포함)만 입력 가능합니다. 다시 입력해주세요.");
+                    continue;
+                }
 
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 int num2 = sc.nextInt();
 
+                // num2 유효성 검사
+                if (num2 < 0) {
+                    System.out.println("양수(0포함)만 입력 가능합니다. 다시 입력해주세요.");
+                    continue;
+                }
 
                 // [2] 사칙연산 기호를 입력받기
                 System.out.print("사칙연산 기호를 입력하세요(+, -, *, /) : ");
@@ -88,6 +98,7 @@ public class App {
 
                 }
 
+            // 0으로 나눴을 때 예외 처리 & 입력 받은 것이 숫자가 아닐 경우 예외 처리
             } catch (IllegalArgumentException e) {
                 System.out.println("🚨 Error : " + e.getMessage());
             } catch (InputMismatchException e) {
