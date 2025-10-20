@@ -1,5 +1,6 @@
 package com.example.calculator;
-import java.nio.channels.ScatteringByteChannel;
+import java.util.InputMismatchException;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,6 +17,8 @@ public class App {
                 // [1] 양의 정수(0 포함)를 입력받기
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 int num1 = sc.nextInt();
+
+
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 int num2 = sc.nextInt();
 
@@ -87,8 +90,14 @@ public class App {
 
             } catch (IllegalArgumentException e) {
                 System.out.println("🚨 Error : " + e.getMessage());
+            } catch (InputMismatchException e) {
+                System.out.println("🚨 Error : 숫자가 아닌 문자가 입력되었습니다. 다시 입력해주세요." );
+                sc.next();
+            }
+
             }
         }
     }
-}
+
+
 
