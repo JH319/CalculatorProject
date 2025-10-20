@@ -58,6 +58,12 @@ public class Calculator {
     public void setResults(int index, int newValue) {
         this.results.set(index, newValue);
     }
+
+    // [7] 가정 먼저 저장된 데이터 삭제하기
+    public void removeResult() {
+        this.results.remove(0);
+        System.out.println("가장 오래된 연산 결과가 삭제되었습니다.");
+    }
 }
 
 

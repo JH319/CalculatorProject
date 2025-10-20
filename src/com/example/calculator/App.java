@@ -35,13 +35,16 @@ public class App {
 
             // 게터 활용
             ArrayList<Integer> arrResults = cal.getResults();
-            System.out.println("결과 리스트 = " + arrResults);
+            System.out.println("::: 결과 리스트 = " + arrResults);
 
 
             // [6] 계산 후, 종료 여부 묻기
-            System.out.println("더 계산하시겠습니까? (exit : 입력 시 종료 / modify : 입력 시 수정)");
+            System.out.println("더 계산하시겠습니까? (exit : 입력 시 종료 / modify : 입력 시 수정 / delete : 입력 시 첫번째 값 삭제" +
+                    ")");
             String answer = sc.next();
 
+
+            // [7] 세터를 활용한 수정 기능
             if ("exit".equals(answer)) {
                 System.out.println("계산을 종료합니다.");
                 break;
@@ -51,8 +54,10 @@ public class App {
                 int index = sc.nextInt();
                 System.out.print("::: 수정할 값을 입력하세요 : ");
                 int newValue = sc.nextInt();
+
+                // 수정 기능 호출
                 cal.setResults(index, newValue);
-                ArrayList modifyResult = cal.getResults();
+                ArrayList<Integer> modifyResult = cal.getResults();
                 System.out.println("::: 수정 된 결과 리스트 = " + modifyResult);
 
                 // 수정 후 사용자에게 다음 행동을 다시 묻기
@@ -63,8 +68,21 @@ public class App {
                 }
             }
 
+            // [8] 첫번째 인덱스 삭제 기능
+            if ("delete".equals(answer)) {
+                cal.removeResult();
 
+                // 삭제 후 결과 리스트 확인
+                ArrayList<Integer> modifyResult = cal.getResults();
+                System.out.println("::: 삭제 된 결과 리스트 = " + modifyResult);
 
+                // 삭제 후 사용자에게 다음 행동을 다시 묻기
+                System.out.println("더 계산하시겠습니까? (exit : 입력 시 종료)");
+                String afterModify = sc.next();
+                if ("exit".equals(afterModify)) {
+                    break;
+                }
+            }
         }
     }
 }
