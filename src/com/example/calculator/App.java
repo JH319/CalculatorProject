@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        // [6] Calculator 인스턴스 생성
+        // Calculator 인스턴스 생성
         Calculator cal = new Calculator();
 
         Scanner sc = new Scanner(System.in);
 
-        // [5] "exit"하기 전까지 반복하기
+        // [7] "exit"하기 전까지 반복하기
         while(true) {
 
             // [1] 양의 정수(0 포함)를 입력받기
@@ -33,6 +33,8 @@ public class App {
                 System.out.println("결과: " + result);
             }
 
+
+            // [5] 결과 리스트 반환하기
             // 게터 활용
             ArrayList<Integer> arrResults = cal.getResults();
             System.out.println("::: 결과 리스트 = " + arrResults);
@@ -44,7 +46,7 @@ public class App {
             String answer = sc.next();
 
 
-            // [7] 세터를 활용한 수정 기능
+            // [8] 세터를 활용한 수정 기능
             if ("exit".equals(answer)) {
                 System.out.println("계산을 종료합니다.");
                 break;
@@ -68,7 +70,7 @@ public class App {
                 }
             }
 
-            // [8] 첫번째 인덱스 삭제 기능
+            // [9] 첫번째 인덱스 삭제 기능
             if ("delete".equals(answer)) {
                 cal.removeResult();
 
