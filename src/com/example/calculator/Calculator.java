@@ -47,6 +47,12 @@ public class Calculator {
 
     // [6] 세터 활용
     public void setResults(int index, int newValue) {
+        if (index < 0 || index >= this.results.size()) {
+            // 수정할 인덱스가 유효한 범위인지 확인
+            System.out.println("🚨 Error : 유효하지 않은 인덱스 [" + index + "]입니다. 현재 리스트 크기: " + this.results.size());
+            return;
+        }
+
         this.results.set(index, newValue);
     }
 
